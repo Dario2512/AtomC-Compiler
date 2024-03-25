@@ -30,6 +30,8 @@ enum
 	RPAR,
 	LACC,
 	RACC,
+	LBRACKET,
+	RBRACKET,
 	WHILE,
 	IF,
 	ELSE,

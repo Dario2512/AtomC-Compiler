@@ -251,6 +251,12 @@ void showTokens(const Token *tokens)
 		case RACC:
 			printf("RACC\n");
 			break;
+		case LBRACKET:
+			printf("LBRACKET\n");
+			break;
+		case RBRACKET:
+			printf("RBRACKET\n");
+			break;
 		case SEMICOLON:
 			printf("SEMICOLON\n");
 			break;
