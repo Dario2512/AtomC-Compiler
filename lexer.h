@@ -14,6 +14,7 @@ enum
 	TYPE_DOUBLE,
 	// delimiters
 	COMMA,
+	DOT,
 	END,
 	SEMICOLON,
 	RETURN
@@ -22,10 +23,18 @@ enum
 	ASSIGN,
 	EQUAL,
 	LESS,
+	LESSEQ,
+	GREATEREQ,
+	GREATER,
 	DIV,
 	ADD,
+	SUB,
 	AND,
+	OR,
+	NOT,
+	NOTEQ,
 	MUL,
+	SPACE,
 	LPAR,
 	RPAR,
 	LACC,
@@ -37,6 +46,7 @@ enum
 	ELSE,
 	STRUCT,
 	VOID,
+	LINECOMMENT,
 };
 
 typedef struct Token

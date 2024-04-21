@@ -6,12 +6,12 @@
 
 int main()
 {
-    char *inbuffer = loadFile("./tests/testlex.c");
-    //puts(inbuffer);
+    char *inbuffer = loadFile("./tests/testparser.c");
+    puts(inbuffer);
     Token *tokens = tokenize(inbuffer);
     free(inbuffer);
     showTokens(tokens);
-    //parse(tokens);
+    parse(tokens);
 
 
     return 0;
