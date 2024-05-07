@@ -1,38 +1,34 @@
 #pragma once
 
-#include "lexer.h"
 #include <stdbool.h>
+#include "lexer.h"
+#include "ad.h"
 
-bool typeBase();
 bool unit();
-void parse(Token *tokens);
 bool structDef();
 bool varDef();
-bool arrayDecl();
-bool fnParam();
-bool fnDef();
-bool structDef();
+bool typeBase();
+bool arrayDecl(Type *t);
 bool stm();
-bool stmCompound();
-
-bool expr();
-bool exprAssign();
+bool stmCompound(bool dom);
+bool fnDef();
 bool exprAdd();
-bool exprAddPrim();
-bool exprMul();
-bool exprMulPrim();
-bool exprOr();
-bool exprOrPrim();
-bool exprAnd();
-bool exprAndPrim();
+bool exprRelPrim();
+bool exprRel();
+bool exprAssign();
 bool exprEq();
 bool exprEqPrim();
+bool exprAndPrim();
+bool exprAnd();
+bool exprOr();
+bool exprOrPrim();
+bool fnParam();
+bool expr();
 bool exprCast();
-bool exprRel();
-bool exprRelPrim();
 bool exprUnary();
 bool exprPostfix();
 bool exprPostfixPrim();
 bool exprPrimary();
-/*
-*/
+bool exprAddPrim();
+bool exprMul();
+bool exprMulPrim();

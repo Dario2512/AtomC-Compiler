@@ -1,17 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "lexer.h"
 #include "utils.h"
 #include "parser.h"
+#include "ad.h"
+#include "vm.h"
 
 int main()
 {
-    char *inbuffer = loadFile("./tests/testparser.c");
-    puts(inbuffer);
-    Token *tokens = tokenize(inbuffer);
-    free(inbuffer);
-    showTokens(tokens);
+    char *inbuf = loadFile("tests/testad.c");
+    Token *tokens = tokenize(inbuf);
+
+    free(inbuf);
+
+    pushDomain();
     parse(tokens);
+
+
+    showDomain(symTable,"global");
+    dropDomain();
 
 
     return 0;

@@ -1,6 +1,6 @@
 int x;
 char y;
-double z;
+double z;	
 double p[100];
 
 struct S1{
