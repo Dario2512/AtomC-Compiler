@@ -15,10 +15,11 @@ int main()
     free(inbuf);
 
     pushDomain();
+    vmInit(); // init vm
     parse(tokens);
-
-
-    showDomain(symTable,"global");
+    Instr *test=genTestProgramFloat(); // genereaza cod pt vm
+    run(test);
+   // showDomain(symTable,"global");
     dropDomain();
 
 

@@ -393,7 +393,7 @@ bool exprAssign(Ret *r) {
                     if(rDst.ct)tkerr("the assign destination cannot be constant");
                     if(!canBeScalar(&rDst))tkerr("the assign destination must be scalar");
                     if(!canBeScalar(r))tkerr("the assign source must be scalar");
-                    if(!convTo(&r->type,&rDst.type))tkerr("the assign source cannot be converted todestination");
+                    if(!convTo(&r->type,&rDst.type))tkerr("the assign source cannot be converted to destination");
                     r->lval=false;
                     r->ct=true;
                     return true;
@@ -428,7 +428,7 @@ bool exprRelPrim(Ret *r) {
         if(exprAdd(&right)) {
             Type tDst;
             if (!arithTypeTo(&r->type, &right.type, &tDst)) {
-                tkerr("Invalid operand type for relational operator");
+                tkerr("invalid operand type for <, <=, >,>=");
             }
             *r = (Ret){{TB_INT, NULL, -1}, false, true};
             if(exprRelPrim(r)) {
@@ -504,14 +504,14 @@ bool exprAddPrim(Ret *r) {
             if(exprAddPrim(r)) {
                 return true;
             }
-        } else tkerr("Missing expression after +");
+        } else tkerr("invalid operand type for +");
     }
     else if(consume(SUB)) {
         Ret right;
         if(exprMul(&right)) {
             Type tDst;
             if (!arithTypeTo(&r->type, &right.type, &tDst)) {
-                tkerr("Invalid operand type for division/substraction");
+                tkerr("invalid operand type for -");
             }
             *r = (Ret){tDst, false, true};
             if(exprAddPrim(r)) {
@@ -542,7 +542,7 @@ bool exprMulPrim(Ret *r) {
         if(exprCast(&right)) {
             Type tDst;
             if (!arithTypeTo(&r->type, &right.type, &tDst)) {
-                tkerr("Invalid operand type for division/multiplication");
+                tkerr("invalid operand type for * or /");
             }
             *r = (Ret){tDst, false, true};
             if(exprMulPrim(r)) {

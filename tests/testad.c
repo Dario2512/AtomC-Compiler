@@ -1,6 +1,6 @@
 int x;
 char y;
-double z;	
+double z;
 double p[100];
 
 struct S1{
@@ -26,5 +26,5 @@ double sum(double x[5],int n){
 	}
 	
 void f(struct S1 p){
-	puti(p.i);
+	//puti(p.i);
 	}
